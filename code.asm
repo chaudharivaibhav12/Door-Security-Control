@@ -95,7 +95,10 @@ st1:	CLI
 	MOV AL,1eh ;Load count lsb for 8253-1 C2 (1 Minute Timer)
 	OUT 14h,AL
 	
-	MOV AL,40h ;Load count lsb for 8253-2 C0 (1 Min counter for 24 hr generation)
+	MOV AL,0C0h ;Load count lsb for 8253-2 C0 (1 Min counter for 24 hr generation)
+	OUT 18h,AL
+	
+	MOV AL,0A8h ;Load count msb for 8253-2 C0 (1 Min counter for 24 hr generation)
 	OUT 18h,AL
 	
 	MOV AL,3h ;load count for 8253-2 C1 (1 hr counter for 24 hr generation)
